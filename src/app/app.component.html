@@ -1,15 +1,36 @@
-<div class="page-content">
 <md-card>
   <md-card-title>Alignment comparison</md-card-title>
   <md-card-subtitle>Local and global alignment in BioInformatic</md-card-subtitle>
-  <md-input-container>
-    <input mdInput placeholder="String 1">
-  </md-input-container>
-  <md-input-container>
-    <input mdInput placeholder="String 2">
-  </md-input-container>
-  <md-card-subtitle>Choose a type of alignment</md-card-subtitle>
-  <md-slide-toggle>Global alignment</md-slide-toggle>
-  <md-slide-toggle>Local alignment</md-slide-toggle>
+  <div class="setupComparison">
+    <md-input-container class="sequence">
+      <input mdInput placeholder="String 1" [(ngModel)]="seq1">
+    </md-input-container>
+    <md-input-container class="sequence">
+      <input mdInput placeholder="String 2" [(ngModel)]="seq2">
+    </md-input-container>
+    <div>
+      <md-select placeholder="Type of comparison" class="comparOpt" [(ngModel)]="selectedType">
+        <md-option *ngFor="let align of align_type" [value]="align.code" >{{align.name}}</md-option>
+      </md-select>
+      <md-input-container class="comparOpt">
+        <input mdInput type="number" placeholder="Match Score" value="0" [(ngModel)]="match">
+      </md-input-container>
+      <md-input-container class="comparOpt">
+        <input mdInput type="number" placeholder="Mismatch Score" value="0" [(ngModel)]="mismatch">
+      </md-input-container>
+      <md-input-container class="comparOpt">
+        <input mdInput type="number" placeholder="Gap Score" value="0" [(ngModel)]="gap">
+      </md-input-container>
+    </div>
+  </div>
+  <div class="resultComparison">
+    <div class="scoreBoard"*ngIf="concatScoreTab">
+      <md-card-subtitle>Score Board</md-card-subtitle>
+      <md-grid-list cols="{{seq1.length+2}}">
+        <md-grid-tile *ngFor="let cell of concatScoreTab" class="{{cell.where}}">{{cell.value}}</md-grid-tile>
+      </md-grid-list>
+    </div>
+  </div>
+  <br clear="both"/>
+  <button md-raised-button (click)="compare(selectedType)">Compare !</button>
 </md-card>
-</div>

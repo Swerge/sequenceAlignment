@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+
+.mat-card{
+  background: rgba(236,240,241 ,1);
+}
+
+md-card .setupComparison, md-card .resultComparison {
+  float:left;
+  width:50%;
+}
+
+.sequence {
+  width:100%;
+}
+
+.comparOpt {
+  margin-right: 1%;
+  width: 45%;
+}
+
+md-grid-tile {
+  border: solid 1px black;
+  font-size: 16px;
+}
+
+.scoreBoard {
+  width: 50%;
+  margin-left: 75px;
+}
+
+.init {  background-color: rgba(236, 240, 241,1.0);  }
+.up {  background-color: rgba(52, 152, 219,1.0);  }
+.left {  background-color: rgba(243, 156, 18,1.0);  }
+.diag {  background-color: rgba(46, 204, 113,1.0);  }
