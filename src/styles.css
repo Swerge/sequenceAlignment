@@ -24,12 +24,18 @@ md-grid-tile {
   font-size: 16px;
 }
 
-.scoreBoard {
-  width: 50%;
+.scoreBoard, .resultBoard{
+  width: 60%;
   margin-left: 75px;
 }
 
+.resultBoard {
+  margin-top: 30px;
+}
+
+
+.mismatch {background-color: rgba(231, 76, 60,1.0)}
 .init {  background-color: rgba(236, 240, 241,1.0);  }
 .up {  background-color: rgba(52, 152, 219,1.0);  }
 .left {  background-color: rgba(243, 156, 18,1.0);  }
-.diag {  background-color: rgba(46, 204, 113,1.0);  }
+.diag, .match {  background-color: rgba(46, 204, 113,1.0);  }

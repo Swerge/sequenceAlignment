@@ -3,7 +3,7 @@
   <md-card-subtitle>Local and global alignment in BioInformatic</md-card-subtitle>
   <div class="setupComparison">
     <md-input-container class="sequence">
-      <input mdInput placeholder="String 1" [(ngModel)]="seq1">
+      <input mdInput placeholder="String 1" [(ngModel)]="seq1" (change)="resetArrays()">
     </md-input-container>
     <md-input-container class="sequence">
       <input mdInput placeholder="String 2" [(ngModel)]="seq2">
@@ -24,13 +24,21 @@
     </div>
   </div>
   <div class="resultComparison">
-    <div class="scoreBoard"*ngIf="concatScoreTab">
+    <div class="scoreBoard" *ngIf="concatScoreTab">
       <md-card-subtitle>Score Board</md-card-subtitle>
       <md-grid-list cols="{{seq1.length+2}}">
         <md-grid-tile *ngFor="let cell of concatScoreTab" class="{{cell.where}}">{{cell.value}}</md-grid-tile>
       </md-grid-list>
     </div>
+    <div class="resultBoard" *ngIf="result">
+      <md-card-subtitle>Result Board</md-card-subtitle>
+      <md-grid-list cols="{{result.length}}">
+        <md-grid-tile *ngFor="let cell of result" class="{{cell.comparison}}">{{cell.seq1}}</md-grid-tile>
+        <md-grid-tile *ngFor="let cell of result" class="{{cell.comparison}}">{{cell.seq2}}</md-grid-tile>
+      </md-grid-list>
+    </div>
   </div>
   <br clear="both"/>
   <button md-raised-button (click)="compare(selectedType)">Compare !</button>
+  <button md-raised-button (click)="resetArrays()">Reset</button>
 </md-card>
