@@ -22,6 +22,7 @@
         <input mdInput type="number" placeholder="Gap Score" value="0" [(ngModel)]="gap">
       </md-input-container>
     </div>
+    <md-card-subtitle *ngIf="finalTime">Time complexity: {{finalTime}} ms</md-card-subtitle>
   </div>
   <div class="resultComparison">
     <div class="scoreBoard" *ngIf="concatScoreTab">

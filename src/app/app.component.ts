@@ -19,6 +19,7 @@ export class AppComponent {
   scoreTab: any;
   concatScoreTab: any;
   result: any;
+  finalTime: number;
 
   displayTab():void {
     for (let i = 0; i < this.seq2.length + 2; i++) {
@@ -117,6 +118,8 @@ export class AppComponent {
   }
 
   globalAlignment(): void {
+    let time = performance.now();
+
     this.initTab('global');
     for (let j = 2; j <= this.seq2.length + 1; j++) {
       for (let i = 2; i <= this.seq1.length + 1; i++ ) {
@@ -134,9 +137,12 @@ export class AppComponent {
       }
     this.displayTab();
     this.resGlobal();
+    this.finalTime = performance.now() - time;
   }
 
   localAlignement(): void {
+    let time = performance.now();
+
     this.initTab('local');
     for (let j = 2; j <= this.seq2.length + 1; j++) {
       for (let i = 2; i <= this.seq1.length + 1; i++ ) {
@@ -157,6 +163,7 @@ export class AppComponent {
     }
     this.displayTab();
     this.resLocal();
+    this.finalTime = performance.now() - time;
   }
 
   resetArrays(): void {
@@ -168,6 +175,7 @@ export class AppComponent {
     this.mismatch = null;
     this.gap = null;
     this.selectedType = null;
+    this.finalTime = null;
   }
 
   compare(type): void {
