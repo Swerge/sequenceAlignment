@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  seq1 = 'CAATTGA';
-  seq2 = 'GAATCTGC';
+  seq1 = '';
+  seq2 = '';
   align_type = [
     {name: 'Global alignment', code: 'global'},
     {name: 'Local alignment', code: 'local'}
